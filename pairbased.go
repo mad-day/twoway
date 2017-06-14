@@ -63,5 +63,10 @@ func EncryptWithG2(g2 *bn256.G2,r io.Reader) (*bn256.G2,*bn256.GT,error) {
 	return h2,Pair(h1,g2),nil
 }
 
-
+/*
+g1 and g2: one of them might be the "private key", the other one might be the message.
+*/
+func Decrypt(g1 *bn256.G1, g2 *bn256.G2) *bn256.GT {
+	return bn256.Pair(g1,g2)
+}
 
